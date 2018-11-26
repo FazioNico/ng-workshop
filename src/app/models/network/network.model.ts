@@ -6,7 +6,7 @@ export interface ILocation {
 }
 
 export interface INetwork {
-    company: string[];
+    company: string | string[];
     href: string;
     id: string;
     location: ILocation;
