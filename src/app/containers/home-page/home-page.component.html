@@ -2,6 +2,9 @@
   home-page works! {{ listItem?.networks?.length }}
 </p>
 <button *ngIf="listItem?.networks?.length < totalMax" (click)="loadData(num + 10)">load 10 more</button>
+<pre>
+  {{totalMax}}
+</pre>
 <ul>
   <li  *ngFor="let item of (listItem$ | async); let i = index">
     {{i}} {{item?.name | uppercase}}  {{(item?.location?.city) ? ' - ' + item?.location?.city : ''}}

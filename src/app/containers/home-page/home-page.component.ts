@@ -37,6 +37,7 @@ export class HomePageComponent implements OnInit {
     this.num = num;
     // dynamic Observable
     this.listItem$ = this._http.get('http://api.citybik.es/v2/networks').pipe(
+      map((response: IApiResponse) => (this.totalMax = response.networks.length, response) ),
       map((response: IApiResponse) => response.networks || []),
       map(data => data.slice(0, this.num)),
       catchError(err => (console.log(err), []))
