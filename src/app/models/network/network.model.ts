@@ -11,6 +11,8 @@ export interface INetwork {
     id: string;
     location: ILocation;
     name: string;
+    toto  /* here optional cars -> */?: string; // optional proprety
+
 }
 
 export interface IApiResponse {

@@ -13,7 +13,7 @@ import { INetwork, IApiResponse } from '../../models/network/network.model';
 export class HomePageComponent implements OnInit {
   public num: number = 10;
   public totalMax: number;
-  public listItem: {networks: any[]};
+  public listItem: {networks: INetwork[]};
   public listItem$: Observable<INetwork[]>;
   @Output() selected: EventEmitter<{}> = new EventEmitter();
   
