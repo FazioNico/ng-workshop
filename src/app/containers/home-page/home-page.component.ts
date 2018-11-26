@@ -42,7 +42,7 @@ export class HomePageComponent implements OnInit {
       // select only `.networks` props
       map((response: IApiResponse) => response.networks || []),
       // filter by `num`
-      map(data => data.slice(0, this.num)),
+      map((data: INetwork[]) => data.slice(0, this.num)),
       //  do not forget to handle errors
       catchError(err => (console.log(err), []))
     );
