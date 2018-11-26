@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { datas } from '../../datas';
 import { HttpService } from '../../providers/http/http.service';
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { INetwork, IApiResponse } from '../../models/network/network.model';
 
 @Component({
@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
   public totalMax: number;
   public listItem: {networks: INetwork[]};
   public listItem$: Observable<INetwork[]>;
+  public apiError: Error;
   @Output() selected: EventEmitter<{}> = new EventEmitter();
   
   constructor(
@@ -39,13 +40,14 @@ export class HomePageComponent implements OnInit {
     // dynamic Observable
     this.listItem$ = this._http.get('http://api.citybik.es/v2/networks').pipe(
       // count total of api respons networks
-      map((response: IApiResponse) => (this.totalMax = response.networks.length, response) ),
+      // map((response: IApiResponse) => (this.totalMax = response.networks.length, response) ),
+      tap((response: IApiResponse) => this.totalMax = response.networks.length),
       // select only `.networks` props
       map((response: IApiResponse) => response.networks || []),
       // filter by `num`
       map((data: INetwork[]) => data.slice(0, this.num)),
       //  do not forget to handle errors
-      catchError(err => (console.log(err), []))
+      catchError(err => (this.apiError = err, []))
     );
   
     // static
