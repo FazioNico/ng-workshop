@@ -3,6 +3,7 @@ import { datas } from '../../datas';
 import { HttpService } from '../../providers/http/http.service';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { INetwork, IApiResponse } from '../../models/network/network.model';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +14,7 @@ export class HomePageComponent implements OnInit {
   public num: number = 10;
   public totalMax: number;
   public listItem: {networks: any[]};
-  public listItem$: Observable<any[]>;
+  public listItem$: Observable<INetwork[]>;
   @Output() selected: EventEmitter<{}> = new EventEmitter();
   
   constructor(
@@ -27,11 +28,16 @@ export class HomePageComponent implements OnInit {
     
   }
 
+  /**
+   * Methode to load datas store bike from API 
+   * + filter by params `num`
+   * @param num Number
+   */
   loadData(num: number) {
     this.num = num;
     // dynamic Observable
     this.listItem$ = this._http.get('http://api.citybik.es/v2/networks').pipe(
-      map((response) => response.networks || []),
+      map((response: IApiResponse) => response.networks || []),
       map(data => data.slice(0, this.num)),
       catchError(err => (console.log(err), []))
     );
