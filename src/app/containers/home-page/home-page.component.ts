@@ -34,7 +34,8 @@ export class HomePageComponent implements OnInit {
    * @param num Number
    */
   loadData(num: number) {
-    this.num = num;
+    // number assignation with +
+    this.num = +num;
     // dynamic Observable
     this.listItem$ = this._http.get('http://api.citybik.es/v2/networks').pipe(
       // count total of api respons networks
