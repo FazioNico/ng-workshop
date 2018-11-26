@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { HomePageComponent } from './containers/home-page/home-page.component';
-import { ItemDetailComponent } from './containers/item-detail/item-detail.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RxComponent } from './components/rx/rx.component';
 import { HttpService } from './providers/http/http.service';
@@ -17,7 +16,6 @@ import { HttpService } from './providers/http/http.service';
     AppComponent,
     ListComponent,
     HomePageComponent,
-    ItemDetailComponent,
     LoginComponent,
     RxComponent
   ],
