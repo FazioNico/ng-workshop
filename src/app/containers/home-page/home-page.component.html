@@ -1,0 +1,15 @@
+<p>
+  home-page works! {{ listItem?.networks?.length }}
+</p>
+<button *ngIf="listItem?.networks?.length < totalMax" (click)="loadData(num + 10)">load 10 more</button>
+<ul>
+  <li  *ngFor="let item of (listItem$ | async); let i = index">
+    {{i}} {{item?.name | uppercase}}  {{(item?.location?.city) ? ' - ' + item?.location?.city : ''}}
+  </li>
+</ul>
+-------------------
+<ul>
+  <li (click)="select(item)" *ngFor="let item of listItem?.networks; let i = index">
+    {{i}} {{item?.name | uppercase}}  {{(item?.location?.city) ? ' - ' + item?.location?.city : ''}}
+  </li>
+</ul>

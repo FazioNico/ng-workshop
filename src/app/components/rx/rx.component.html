@@ -1,0 +1,13 @@
+<b>Angular Component Using Observables!</b>
+
+<!-- <h6 style="margin-bottom: 0">VALUES:</h6>
+<div *ngFor="let value of values">- {{ value }}</div>
+
+<h6 style="margin-bottom: 0">ERRORs:</h6>
+<div>Errors: {{anyErrors}}</div>
+
+<h6 style="margin-bottom: 0">FINISHED:</h6>
+<div>Finished: {{ finished }}</div> -->
+
+<div *ngFor="let value of (data$ | async)">- {{ value }}</div>
+<button style="margin-top: 2rem;" (click)="init()">Init</button>
