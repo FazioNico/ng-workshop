@@ -1,9 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { datas } from '../../datas';
-import { HttpService } from '../../providers/http/http.service';
+import { HttpService } from '@app/shared/services';
 import { Observable } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-import { INetwork, IApiResponse } from '../../models/network/network.model';
+import { INetwork, IApiResponse } from '@app/shared/models/network/network.model';
 
 @Component({
   selector: 'app-home-page',
@@ -21,7 +20,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private _http: HttpService
   ) {
-    this.totalMax = datas.networks.length;
+    // this.totalMax = datas.networks.length;
     this.loadData(this.num)
   }
 
@@ -49,10 +48,6 @@ export class HomePageComponent implements OnInit {
       //  do not forget to handle errors
       catchError(err => (this.apiError = err, []))
     );
-  
-    // static
-    const networks = datas.networks.slice(0, this.num)
-    this.listItem = {networks};
   }
 
   select(item) {

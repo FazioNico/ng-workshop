@@ -18,3 +18,21 @@ export interface INetwork {
 export interface IApiResponse {
     networks: INetwork[]
 }
+
+export interface IStation {
+    empty_slots: string;
+    extra: {
+        bike_uids?: string[];
+        number: string;
+        slots: number;
+        uid: string;
+    };
+    free_bikes: number;
+    id: string;
+    latitude: number;
+    longitude: number;
+    name: string;
+    timestamp: Date;
+}
+
+export type TNetwork = INetwork & { stations?: IStation[]};

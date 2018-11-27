@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let item of (items); let i = index">
+    <a routerLink="../details/{{item?.id}}">
+      {{i}} {{item?.name | uppercase}}  {{(item?.location?.city) ? ' - ' + item?.location?.city : ''}}
+    </a>
+  </li>
+</ul>

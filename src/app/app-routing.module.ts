@@ -6,7 +6,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
   {
     path: 'index',
-    component: AppComponent
+    loadChildren: './features/home/home.module#HomeModule'
   },
   {
     path: 'details',

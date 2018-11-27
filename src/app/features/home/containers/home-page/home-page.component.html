@@ -1,0 +1,14 @@
+
+<button *ngIf="(listItem$ | async)?.length < totalMax" (click)="loadData(num + 10)">load 10 more</button>
+<pre>
+  Display: {{(listItem$ | async)?.length }} / {{totalMax}}
+</pre>
+<app-list [items]="listItem$ | async"></app-list>
+<!-- <ul>
+  <li  (click)="select(item)" *ngFor="let item of (listItem$ | async); let i = index">
+    <a routerLink="../details/{{item?.id}}">
+      {{i}} {{item?.name | uppercase}}  {{(item?.location?.city) ? ' - ' + item?.location?.city : ''}}
+    </a>
+  </li>
+</ul> -->
+

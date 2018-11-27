@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemDetailComponent } from './containers';
+import { HomePageComponent } from '@app/features/home/containers/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full'},
   {
-    path: ':id',
-    component: ItemDetailComponent
+    path: '',
+    component: HomePageComponent
   }
 ];
 
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DetailRoutingModule { }
+export class HomeRoutingModule { }

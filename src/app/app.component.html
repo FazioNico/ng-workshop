@@ -2,10 +2,9 @@
     <app-login (userLogin)="checkUser()"></app-login>
 </div>
 <!-- <app-rx></app-rx> -->
-<ng-template #Switch>
+<!-- <ng-template #Switch>
     <div [ngSwitch]="item">
         <app-home-page *ngSwitchCase="null" (selected)="onSelected($event)"></app-home-page>
-        <!-- <app-item-detail *ngSwitchDefault [item]="item" (back)="item = null"></app-item-detail> -->
     </div>   
-</ng-template>
+</ng-template> -->
 <router-outlet></router-outlet>

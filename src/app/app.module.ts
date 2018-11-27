@@ -5,8 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './components/list/list.component';
-import { HomePageComponent } from './containers/home-page/home-page.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RxComponent } from './components/rx/rx.component';
 import { HttpService } from './providers/http/http.service';
@@ -14,8 +12,6 @@ import { HttpService } from './providers/http/http.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    HomePageComponent,
     LoginComponent,
     RxComponent
   ],
