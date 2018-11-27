@@ -5,23 +5,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './containers/login/login.component';
-import { RxComponent } from './components/rx/rx.component';
-import { HttpService } from './providers/http/http.service';
+import { CoreModule } from '@app/core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RxComponent
   ],
   imports: [
-    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    CoreModule
   ],
-  providers: [HttpService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

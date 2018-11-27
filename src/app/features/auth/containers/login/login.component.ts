@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { emailControl } from '../../utils/formValidators';
+import { emailControl } from '@app/utils/formValidators';
 
 @Component({
   selector: 'app-login',

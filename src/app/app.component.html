@@ -1,10 +1,1 @@
-<div *ngIf="!user; else Switch">
-    <app-login (userLogin)="checkUser()"></app-login>
-</div>
-<!-- <app-rx></app-rx> -->
-<!-- <ng-template #Switch>
-    <div [ngSwitch]="item">
-        <app-home-page *ngSwitchCase="null" (selected)="onSelected($event)"></app-home-page>
-    </div>   
-</ng-template> -->
 <router-outlet></router-outlet>

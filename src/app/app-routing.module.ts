@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: './features/home/home.module#HomeModule'
   },
   {
+    path: 'auth',
+    loadChildren: './features/auth/auth.module#AuthModule'
+  },
+  {
     path: 'details',
     loadChildren: './features/detail/detail.module#DetailModule'
   }
