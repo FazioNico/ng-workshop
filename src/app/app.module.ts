@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@app/core/core.module';
+import { AppAuthGuard } from '@app/app-auth.guard';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { CoreModule } from '@app/core/core.module';
     AppRoutingModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    AppAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
