@@ -6,6 +6,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpService } from '@app/shared/services';
 import { SharedModule } from '@app/shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HeaderComponent } from '@app/shared/components';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -15,7 +16,8 @@ describe('HomePageComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ 
         HomePageComponent,
-        ListComponent
+        ListComponent,
+        HeaderComponent
       ],
       imports: [
         RouterTestingModule,
