@@ -1,4 +1,6 @@
-<button (click)="onBack()">Back</button>
+<app-header></app-header>
+<button (click)="navigate('back')">Back</button>
 <pre>
-  {{item$ | async | json }}
+  {{(item$ | async )?.network?.company  }}
 </pre>
+<button (click)="navigate('info')">more info...</button>

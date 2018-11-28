@@ -1,4 +1,5 @@
 
+<app-header></app-header>
 <div *ngIf="(listItem$ | async) as listItem; else Loading">
   <button *ngIf="listItem?.length < totalMax" (click)="loadData(num + 10)">load 10 more</button>
   <pre>

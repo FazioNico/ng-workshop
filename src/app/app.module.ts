@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@app/core/core.module';
 import { AppAuthGuard } from '@app/app-auth.guard';
+import { AppNoAuthGuard } from '@app/app-noauth.guard';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppAuthGuard } from '@app/app-auth.guard';
     CoreModule
   ],
   providers: [
-    AppAuthGuard
+    AppAuthGuard,
+    AppNoAuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TNetwork } from '@app/shared/models';
 import { Observable } from 'rxjs';
 import { HttpService } from '@app/shared/services';
@@ -11,17 +11,20 @@ import { HttpService } from '@app/shared/services';
 export class ItemDetailComponent implements OnInit {
 
   item$: Observable<TNetwork>;
-  @Output() back: EventEmitter<any> = new EventEmitter()
+  id: string
+
   constructor(
-    private _router: ActivatedRoute,
+    private _route: ActivatedRoute,
+    private _router: Router,
     private _http: HttpService
   ) { }
 
   ngOnInit() {
     const { params: {
       id = null
-    } = {} } = this._router.snapshot
+    } = {} } = this._route.snapshot
     if (!id) return alert('no id');
+    this.id = id;
     this._loadData(id);
   }
 
@@ -31,7 +34,16 @@ export class ItemDetailComponent implements OnInit {
     // todo: http request
   }
 
-  onBack(){
-    this.back.emit(true)
+  navigate(url: string){
+    switch (true) {
+      case url === 'back':
+        this._router.navigate(['index'])
+        break;
+      case url === 'info':
+        this._router.navigate([`details/${this.id}/info`])
+        break;
+      default:
+        break;
+    }
   }
 }
